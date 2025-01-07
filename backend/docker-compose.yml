@@ -1,0 +1,41 @@
+services:
+  app:
+    build:
+      context: .
+      target: dev
+    image: app:dev
+    env_file:
+      - .env
+    networks:
+      - local-network
+    ports:
+      - 3333:3333
+    depends_on:
+      - postgres
+    volumes:
+      - .:/src
+    command:
+      - yarn
+      - start:dev
+
+  postgres:
+    image: postgres
+    hostname: postgres_test
+    restart: always
+    networks:
+      - local-network
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: test
+    volumes:
+      - db-data:/var/lib/postgresql/data/
+
+volumes:
+  db-data:
+
+networks:
+  local-network:
+    name: local-test-network
