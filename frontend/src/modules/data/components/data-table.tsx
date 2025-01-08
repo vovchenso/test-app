@@ -1,6 +1,7 @@
 import { FC } from "react";
 import styled from "styled-components";
 import { Data } from "../../../models/data";
+import { getFormattedDate } from "../../../utils/date";
 
 const Table = styled.table`
   border-spacing: 0;
@@ -46,7 +47,7 @@ export const DataTable: FC<DataTableProps> = ({ data }) => {
             <td>{item.street}</td>
             <td>{item.city}</td>
             <td>{item.zip}</td>
-            <td>{item.birthday}</td>
+            <td>{getFormattedDate(item.birthday)}</td>
             <td>{item.aboutMe}</td>
           </tr>
         ))}

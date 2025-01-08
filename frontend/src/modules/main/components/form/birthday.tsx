@@ -11,7 +11,7 @@ export const Birthday: FC = () => {
       label="Birthday"
       type="date"
       max={maxDate}
-      {...register("birthday")}
+      {...register("birthday", { setValueAs: (value) => new Date(value) })}
       error={formState.errors.birthday?.message?.toString()}
     />
   );

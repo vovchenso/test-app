@@ -5,12 +5,12 @@ interface User {
 
 export interface Data {
   user: User;
-  street: string;
-  city: string;
-  zip: string;
-  country: string;
-  birthday: string;
-  aboutMe: string;
+  street: string | null;
+  city: string | null;
+  zip: string | null;
+  country: string | null;
+  birthday: string | null;
+  aboutMe: string | null;
 }
 
 export type OnboardingData = Omit<Data, 'user'> & User;

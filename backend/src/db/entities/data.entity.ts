@@ -18,23 +18,23 @@ export class Data {
   @Column({ name: 'user_id' })
   userId: number;
 
-  @Column({ name: 'about_me' })
-  aboutMe: string;
+  @Column({ name: 'about_me', nullable: true })
+  aboutMe: string | null;
 
-  @Column()
-  birthday: string;
+  @Column({ nullable: true })
+  birthday: string | null;
 
-  @Column()
-  street: string;
+  @Column({ nullable: true })
+  street: string | null;
 
-  @Column()
-  city: string;
+  @Column({ nullable: true })
+  city: string | null;
 
-  @Column()
-  state: string;
+  @Column({ nullable: true })
+  state: string | null;
 
-  @Column()
-  zip: string;
+  @Column({ nullable: true })
+  zip: string | null;
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;

@@ -1,4 +1,11 @@
-import { IsEmail, IsString, MinLength } from 'class-validator';
+import {
+  IsDateString,
+  IsEmail,
+  IsOptional,
+  IsString,
+  MinLength,
+  ValidateIf,
+} from 'class-validator';
 
 export class DataRequest {
   @IsString()
@@ -10,20 +17,32 @@ export class DataRequest {
   password: string;
 
   @IsString()
+  @IsOptional()
+  @ValidateIf((o) => o.street !== undefined)
   street: string;
 
   @IsString()
+  @IsOptional()
+  @ValidateIf((o) => o.city !== undefined)
   city: string;
 
   @IsString()
+  @IsOptional()
+  @ValidateIf((o) => o.state !== undefined)
   state: string;
 
   @IsString()
+  @IsOptional()
+  @ValidateIf((o) => o.zip !== undefined)
   zip: string;
 
-  @IsString()
+  @IsDateString()
+  @IsOptional()
+  @ValidateIf((o) => o.birthday !== undefined)
   birthday: string;
 
   @IsString()
+  @IsOptional()
+  @ValidateIf((o) => o.aboutMe !== undefined)
   aboutMe: string;
 }

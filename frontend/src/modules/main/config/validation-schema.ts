@@ -14,7 +14,7 @@ const addressValidationSchema = {
 };
 
 const birthdayValidationSchema = {
-  birthday: z.string().nonempty(),
+  birthday: z.date(),
 };
 
 const aboutMeValidationSchema = {

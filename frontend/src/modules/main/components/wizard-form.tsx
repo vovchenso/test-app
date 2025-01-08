@@ -31,8 +31,8 @@ export const WizardForm: FC<PropsWithChildren<WizardFormProps>> = ({
   const handleSubmit = async () => {
     const data = methods.getValues();
     await mutateAsync(data);
-    methods.reset();
-    setActiveStep(0);
+    // methods.reset();
+    // setActiveStep(0);
   };
 
   const handleNext = async () => {
