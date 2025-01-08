@@ -5,7 +5,7 @@ services:
       target: dev
     image: app:dev
     env_file:
-      - .env
+      - .env.local
     networks:
       - local-network
     ports:
